@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Enroll pill</title>
+<style>
+  :root{
+    --pill-bg: rgba(255,255,255,0.95);
+    --pill-border: rgba(0,0,0,0.06);
+    --pill-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    --accent: #111; /* text/icon color */
+    --muted: rgba(0,0,0,0.35);
+  }
+
+  body{
+    display:flex;
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(180deg,#7b4edd 0%, #b35d8c 100%); /* demo bg */
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  /* pill container */
+  .action-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 8px 14px;
+    background: var(--pill-bg);
+    border-radius: 999px;
+    box-shadow: var(--pill-shadow);
+    border: 1px solid var(--pill-border);
+    min-width: 180px;
+    align-items: center;
+    user-select: none;
+  }
+
+  /* left part behaves like button */
+  .pill-left {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    transition: background .18s ease, transform .08s ease;
+  }
+  .pill-left:hover { background: rgba(0,0,0,0.04); }
+  .pill-left:active { transform: translateY(1px); }
+
+  /* divider line */
+  .pill-divider {
+    width:1px;
+    height: 34px;
+    background: var(--pill-border);
+    margin: 0 4px;
+    flex-shrink: 0;
+  }
+
+  /* right icon button */
+  .pill-right {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    height:42px;
+    border-radius: 999px;
+    cursor:pointer;
+    color: var(--muted);
+    transition: background .18s ease, color .18s ease, transform .08s ease;
+  }
+  .pill-right:hover { background: rgba(0,0,0,0.03); color: var(--accent); }
+  .pill-right:active { transform: translateY(1px); }
+
+  /* small SVG sizing */
+  .icon {
+    width:20px;
+    height:20px;
+    display:block;
+  }
+
+  /* optional: compact layout for very small screens */
+  @media (max-width:360px){
+    .action-pill { gap:10px; padding:6px 10px; min-width:150px; }
+    .pill-right { width:36px; height:36px; }
+    .pill-divider { height:28px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="action-pill" role="group" aria-label="Enroll and profile actions">
+
+    <!-- LEFT: "Enroll now" (replaces the bag icon) -->
+    <div class="pill-left" id="enrollBtn" role="button" tabindex="0" aria-pressed="false" aria-label="Enroll now">
+      <!-- you can add a small icon before text if you want (commented) -->
+      <!-- <svg class="icon" viewBox="0 0 24 24" fill="none" ...></svg> -->
+      <span>Enroll now</span>
+    </div>
+
+    <!-- divider -->
+    <div class="pill-divider" aria-hidden="true"></div>
+
+    <!-- RIGHT: user icon -->
+    <div class="pill-right" id="profileBtn" role="button" tabindex="0" aria-label="Open profile">
+      <!-- lightweight user SVG -->
+      <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 21a8 8 0 10-16 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+  </div>
+
+<script>
+  // small JS handlers (accessible via keyboard)
+  const enroll = document.getElementById('enrollBtn');
+  const profile = document.getElementById('profileBtn');
+
+  function activateEnroll(){
+    // example behavior — replace with your real logic (navigate, open modal, etc.)
+    alert('Enroll now clicked');
+  }
+  function openProfile(){
+    alert('Open profile clicked');
+  }
+
+  enroll.addEventListener('click', activateEnroll);
+  enroll.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateEnroll(); } });
+
+  profile.addEventListener('click', openProfile);
+  profile.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProfile(); } });
+</script>
+</body>
+</html>

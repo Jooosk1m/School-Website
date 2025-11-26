@@ -1,0 +1,333 @@
+/* --- Fonts --- */
+
+/* Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* --- Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* --- Background Color --- */
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+/* --- Header Layout --- */
+.m-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.m-header{
+  position: relative;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  margin: 1% 7%;
+}
+
+/* --- School Name --- */
+.school-name h6 {
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 7px;
+  padding-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  color: white;
+}
+
+/* --- Navigation Links --- */
+.m-ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.m-ul li {
+  list-style: none;
+}
+
+.m-ul li a {
+  position: relative;
+  color: white;
+  font-size: 0.8vw;
+  font-weight: 500;
+  display: flex;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+/* --- Button Pill --- */
+
+.pill-divider{
+  width:1px;
+  height: 20px;
+  background: rgb(59, 59, 59);
+  flex-shrink: 0;
+}
+
+.pill-right {
+  width:25px;
+  height:25px;
+}
+.pill-right:hover { cursor: pointer;}
+.pill-right:active { transform: translateY(1px); }
+
+.pill-left{
+  font-size: 0.9vw;
+  font-weight: bolder;
+  color: rgb(189, 7, 7);
+}
+.pill-left:hover { cursor: pointer;}
+.pill-left:active { transform: translateY(1px); }
+
+.action-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgb(255, 255, 255); 
+  min-width: 11vw;
+  min-height: 1vh;
+  align-items: center;
+}
+
+/* --- Logo --- */
+
+.m-logo{
+  margin-right: auto;
+  position: relative;
+}
+
+.m-logo a img{
+  height: 9vh;
+}
+
+/* --- Active Link (Mission & Vision) --- */
+.m-ul li a.nav-mi-vi {
+  font-weight: 700;
+  position: relative;
+}
+
+/* --- Hover Effect --- */
+
+
+.m-ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  transition: 0.25s ease-in-out;
+}
+
+.m-ul li a:hover::after {
+  width: 100%;
+}
+
+/* --- Main --- */
+
+main{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.Qoute {
+  position: fixed;
+  bottom: 7%;
+}
+
+.Qoute h1{
+  color: white;
+  font-size: 7vw;
+  line-height: 0.8;
+}
+
+/* -- Button --*/
+
+.enroll-btn{
+  margin-top: 10px;
+}
+
+.enroll-btn button{
+  cursor: pointer;
+  border-radius: 999px;
+  border: none;
+  height: 4vh;
+  width: 15rem;
+  font-weight: bold;
+  background-color: maroon;
+  color: white;
+}
+
+
+
+/* --- Loader -- */
+
+
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.block{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(71, 16, 16);
+}
+
+#word-1{
+  position: relative;
+  left: -0.5rem;
+  padding-right: 0.25rem;
+}
+
+.word h1{
+  font-size: 2.5rem;
+  color: white;
+}
+
+.divider{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: center-top;
+  width: 1px;
+  height: 100%;
+  background-color: white;
+}
+
+.spinner-container{
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.spinner{
+  width: 50px;
+  height: 50px;
+  border: 1.4px solid white;
+  border-top-color: rgba(255,255,255, 0.125);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin{
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.counter{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.count{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+
+.digit{
+  color: white;
+  flex: 1;
+  padding-top: 1rem;
+}
+
+.count .digit h1{
+  font-size: 15rem;
+  font-weight: 400;
+}
+
+.nav{
+  transform: translateY(-120%);
+}
+
+.enroll-label button{
+  transform: scale(0);
+}
+
+.school-name, .enroll-label, .main-q, .sub-q, .m-ul li, .word,.count .digit{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.count .digit h1{
+  position: relative;
+  transform: translateY(120%);
+  will-change: transform;
+}
+
+.m-ul li a, .school-name h6, .main-q h1, .sub-q p{
+  transform: translateY(120%);
+}
+
+.logo img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 999;
+}
+
+#word-1 h1{
+  transform: translateY(-120%);
+}
+
+#word-2 h1{
+  transform: translateY(120%);
+}
+
+.block{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.divider{
+  transform: scaleY(0%);
+}
+
+.hero{
+  transform: scale(1.5);
+  will-change: transform;
+}
